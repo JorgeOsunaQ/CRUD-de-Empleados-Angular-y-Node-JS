@@ -1,0 +1,24 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>   
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+      <nav class="navbar border navbar-expand navbar-light p-0 col-12 my-3"
+      id="seccion-navbar">
+
+          <ul class="navbar-nav font-weight-bold">
+          <li class="nav-item">
+            <a [routerLink]="['/empleados']" class="nav-link">Empleados</a>
+          </li>
+      
+          <li class="nav-item">
+              <a [routerLink]="['/about']" class="nav-link">Info</a>
+          </li>
+        </ul>
+      </nav>
+    <router-outlet></router-outlet>
+  </div>
+</body>

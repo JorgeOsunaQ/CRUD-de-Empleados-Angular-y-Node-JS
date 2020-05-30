@@ -1,0 +1,49 @@
+<div id="contenedorForms" class="border">
+  <form>
+    <h4>Ingrese los datos del empleados del empleado a agregar:</h4>
+    <hr>
+
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Ingrese el nombre" #inputName
+      value='{{empleadoEdit.name}}'>
+    </div>
+
+    <div class="form-group">
+      <label for="inputLastName">Apellido:</label>
+      <input type="text" class="form-control" id="inputLastName" placeholder="Ingrese el apellido" #inputLastName
+      value='{{empleadoEdit.last_name}}'>
+    </div>
+
+    <div class="form-group">
+      <label for="selectJobTitle">Puesto de trabajo</label>
+      <select class="form-control" id="selectJobTitle" #codigo (change)='codigo.value' #selectJobTitle>
+        <option selected="selected">Administrativo</option>
+        <option>Operativo</option>
+        <option>Otro</option>
+      </select> 
+    </div>
+
+    <section *ngIf="codigo.value=='Otro'">
+      <div class="form-group" >
+        <label for="specifyJobTitle">Especifica el puesto de trabajo del empleado</label>
+        <input type="text" class="form-control" id="inputJobTitle" placeholder="Ingrese el puesto de trabajo" 
+        #inputJobTitle value={{empleadoEdit.job_title}}>
+      </div>
+        
+      <div class="form-group">
+        <button type="button" class="btn bg-primary text-white" id="btnSendData" 
+        (click)='enviarDatos(inputName.value,inputLastName.value,inputJobTitle.value)'>
+          Enviar
+        </button>
+      </div>
+    </section>
+
+    <div class="form-group" *ngIf="codigo.value!='Otro'">
+      <button type="button" class="btn bg-primary text-white" id="btnSendData" 
+      (click)='enviarDatos(inputName.value,inputLastName.value,selectJobTitle.value)'>
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>

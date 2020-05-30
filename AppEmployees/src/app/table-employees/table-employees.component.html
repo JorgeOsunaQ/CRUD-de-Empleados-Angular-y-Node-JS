@@ -1,0 +1,56 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>   
+</head>
+<body>
+    
+    <div class="container border ">
+
+        <div class="row head-employees">
+            <div class="col-12">
+                <h4 class="mt-2"><b>Empleados Registrados</b></h4>
+            </div>
+        </div>
+
+        <div class="row my-3 mx-2">
+            <button id="btn-addEmp" class="btn pull-right" (click)="rutaRegistrar()">
+                Agregar nuevo empleado</button>
+        </div>
+    
+        <div *ngIf="loaded" class="row">
+            <table class="table col-12">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Puesto</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <tr *ngFor="let emp of datosEmpleados; index as i;">
+                        <td>{{emp.id}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.last_name}}</td>
+                        <td>{{emp.job_title}}</td>
+                        <td>
+                            <a class="mx-md-2 ">
+                                <button type="button" class="btn btnConfig btnOption" title="Modificar"
+                                (click)="rutaEditar(emp)">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                            </a> 
+                            <a>
+                                <button type="button" class="btn btnConfig btnDelete" title="Eliminar"
+                                (click)="eliminarEmpleado(emp.id)">
+                                    <i class="fas fa-minus-circle"></i>
+                                </button>
+                            </a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>

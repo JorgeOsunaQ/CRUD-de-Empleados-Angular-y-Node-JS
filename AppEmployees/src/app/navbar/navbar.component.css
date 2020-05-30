@@ -1,0 +1,16 @@
+*{
+    font-family: 'Roboto',serif;
+    font-size: 1.1em;
+}
+
+nav{
+    background-color: #F2F2F2;
+}
+
+.nav-link{
+    color: #112928 !important;
+}
+
+.nav-item{
+    margin-left: 1.2rem;
+}

@@ -1,0 +1,11 @@
+#contenedorForms
+{
+    position: relative;
+    padding: 1rem;
+    border: solid #f7f7f9;
+    border-width: .2rem 0 0;
+}
+
+#autor{
+    font-size: 1.4rem;
+}

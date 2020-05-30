@@ -1,0 +1,37 @@
+body{
+    font-family: 'Roboto',serif;
+}
+
+button,table{
+    font-size: 1.3rem;
+}
+
+#btn-addEmp{
+    background-color:  #95C9FF;
+    font-weight: 800;
+}
+
+#btn-addEmp:hover{
+    color: white;
+}
+
+.btnOption{
+    font-family: "Font Awesome 5 Free";
+}
+
+.btnConfig{
+    background-color: #FFB219;
+}
+
+.btnDelete{
+    background-color: #D53E26;
+    color: whitesmoke;
+}
+
+thead{
+    background-color: rgb(250, 250, 250);
+}
+
+.head-employees{
+    background-color:#F2F2F2;
+}
