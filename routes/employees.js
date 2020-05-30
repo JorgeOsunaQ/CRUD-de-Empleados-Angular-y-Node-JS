@@ -34,7 +34,7 @@ module.exports=(models)=>{
             message: "Ningun registro coincide con las busqueda."})
     })
 
-    //Registrar nuevos empleados
+    //Registrar nuevo empleado
     router.post("/registrar",async(req,res)=>{
         const employee=req.body;
 
@@ -55,6 +55,7 @@ module.exports=(models)=>{
 
     //Modificar empleado
     router.put('/modificar', async (req,res)=>{
+        try{
         const id=req.body.id;
 
         const newData={
@@ -63,11 +64,15 @@ module.exports=(models)=>{
             job_title: req.body.job_title
         }
 
-        try{
-            models.employeeModel.update(
+           await models.employeeModel.update(
                 newData,
                 { where: { id: id }}
             )
+        console.log('ENTRANDO')
+        await res.send({
+            message: "Datos del empleado modificados exitosamente."
+        })
+
         }catch(error){
             return res.status(400).json({
                 flag: false,
@@ -75,10 +80,6 @@ module.exports=(models)=>{
                 message: "No fue posible modificar los datos del usuario.",
                 error: error})
         }
-
-        res.send({
-            message: "Datos del empleado modificados exitosamente."
-        })
     })
 
     //Eliminar empleado

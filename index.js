@@ -1,5 +1,6 @@
 const express= require('express');
-const bodyParse=require('body-parser')
+const bodyParse=require('body-parser');
+const cors= require('cors');
 
 //Creación del servidor
 const port=process.env.port || 3000;
@@ -17,6 +18,8 @@ console.log(`Servidor Ejecutandose en el puerto ${port}`)
 app.use(bodyParse.urlencoded({ extended: false}));
 app.use(bodyParse.json());
 
+app.use(cors({origin: '*'}));
+
 //Rutas de la API
 //Importando los modulos de las rutas
 const empleadosAPI=require('./routes/employees')(models);
@@ -25,7 +28,7 @@ const empleadosAPI=require('./routes/employees')(models);
 app.use('/api/empleados',empleadosAPI)
 
 app.get('/',(req,res)=>{
-    res.send('RUTA RAÍZ');
+    res.send('RUTA RAÍZ DE LA API');
 })
 
 app.get('*',(req,res)=>{
